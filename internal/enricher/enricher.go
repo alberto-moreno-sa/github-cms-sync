@@ -21,15 +21,14 @@ For EACH repository, generate a JSON object with:
 
 1. "name": a human-readable project name derived from the repo name (e.g. "financial-dashboard" → "Financial Dashboard", "go-service-kit" → "Go Service Kit", "alberthiggs.com" → "alberthiggs.com")
 2. "shortDescription": 1 brief phrase, max 200 chars. A concise summary of what the project is.
-3. "description": 1 sentence, max 120 chars. What the project does.
-4. "longDescription": 2-3 sentences. What it does, key technical decisions, and impact.
+3. "longDescription": 2-3 sentences. What it does, key technical decisions, and impact.
 4. "technologies": array of specific technologies (frameworks, libraries, databases).
    Use the languages list AND the README to identify: React, FastAPI, PostgreSQL, Docker, etc.
    Do NOT list generic terms like "JavaScript" if a framework like "React" is more specific.
-6. "highlights": array of 3-5 bullet points. Focus on technical achievements, not features.
+5. "highlights": array of 3-5 bullet points. Focus on technical achievements, not features.
    Each highlight should be concise (under 60 chars).
-7. "category": one of ["Web", "Backend", "Full-Stack", "Libraries", "DevOps", "Game Dev", "Mobile"]
-8. "gradient": a Tailwind CSS gradient string (from-{color}-500 to-{color}-600).
+6. "category": one of ["Web", "Backend", "Full-Stack", "Libraries", "DevOps", "Game Dev", "Mobile"]
+7. "gradient": a Tailwind CSS gradient string (from-{color}-500 to-{color}-600).
    Choose colors that match the project's domain:
    - Finance/money → emerald/teal
    - Infrastructure/DevOps → cyan/blue
@@ -43,7 +42,6 @@ Return ONLY a valid JSON array with one object per repository. No markdown, no e
 type enrichedData struct {
 	Name             string   `json:"name"`
 	ShortDescription string   `json:"shortDescription"`
-	Description      string   `json:"description"`
 	LongDescription  string   `json:"longDescription"`
 	Technologies    []string `json:"technologies"`
 	Highlights      []string `json:"highlights"`
@@ -112,7 +110,6 @@ func Enrich(ctx context.Context, apiKey string, projects []mapper.RawProject) ([
 			Name:             data.Name,
 			Slug:             raw.Slug,
 			ShortDescription: data.ShortDescription,
-			Description:      data.Description,
 			LongDescription:  data.LongDescription,
 			GithubURL:       raw.GitHubURL,
 			Technologies:    data.Technologies,
