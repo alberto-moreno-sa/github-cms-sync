@@ -145,7 +145,10 @@ func buildBatchPrompt(projects []mapper.RawProject) string {
 		}
 	}
 
-	jsonBytes, _ := json.Marshal(entries)
+	jsonBytes, err := json.Marshal(entries)
+	if err != nil {
+		return "[]"
+	}
 	return string(jsonBytes)
 }
 
@@ -156,8 +159,6 @@ func stripMarkdownFences(s string) string {
 	} else if strings.HasPrefix(s, "```") {
 		s = strings.TrimPrefix(s, "```")
 	}
-	if strings.HasSuffix(s, "```") {
-		s = strings.TrimSuffix(s, "```")
-	}
+	s = strings.TrimSuffix(s, "```")
 	return strings.TrimSpace(s)
 }
