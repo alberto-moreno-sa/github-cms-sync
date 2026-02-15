@@ -3,7 +3,7 @@ module github.com/alberto-moreno-sa/github-cms-sync
 go 1.25.6
 
 require (
-	github.com/alberto-moreno-sa/go-service-kit v0.1.0
+	github.com/alberto-moreno-sa/go-service-kit v0.2.0
 	github.com/joho/godotenv v1.5.1
 	github.com/spf13/cobra v1.10.2
 )
@@ -29,5 +29,3 @@ require (
 	google.golang.org/grpc v1.66.2 // indirect
 	google.golang.org/protobuf v1.34.2 // indirect
 )
-
-replace github.com/alberto-moreno-sa/go-service-kit => ../go-service-kit
