@@ -6,8 +6,9 @@ import "time"
 type Project struct {
 	Name            string   `json:"name"`
 	Slug            string   `json:"slug"`
-	Description     string   `json:"description"`
-	LongDescription string   `json:"longDescription"`
+	ShortDescription string   `json:"shortDescription"`
+	Description      string   `json:"description"`
+	LongDescription  string   `json:"longDescription"`
 	GithubURL       string   `json:"githubUrl"`
 	Technologies    []string `json:"technologies"`
 	Highlights      []string `json:"highlights"`
