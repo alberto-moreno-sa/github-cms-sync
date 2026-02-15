@@ -51,7 +51,7 @@ func Load() (*Config, error) {
 
 	cfg.MaxFeatured = envInt("MAX_FEATURED", 5)
 	cfg.MaxProjects = envInt("MAX_PROJECTS", 15)
-	cfg.ForceUpdate, _ = strconv.ParseBool(os.Getenv("FORCE_UPDATE"))
+	cfg.ForceUpdate = os.Getenv("FORCE_UPDATE") == "true"
 
 	return cfg, nil
 }
