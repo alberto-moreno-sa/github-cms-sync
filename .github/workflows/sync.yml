@@ -1,8 +1,6 @@
 name: Sync GitHub Projects to Contentful
 
 on:
-  schedule:
-    - cron: '0 6 * * 1'
   workflow_dispatch:
     inputs:
       force_update:
@@ -13,6 +11,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - uses: actions/checkout@v4
 
